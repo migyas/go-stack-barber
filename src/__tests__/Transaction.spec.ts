@@ -1,5 +1,5 @@
 import request from 'supertest';
-import { validate as isUuid } from 'uuid';
+import { validate } from 'uuid';
 import app from '../app';
 
 describe('Transaction', () => {
@@ -10,7 +10,7 @@ describe('Transaction', () => {
       value: 1200,
     });
 
-    expect(isUuid(response.body.id)).toBe(true);
+    expect(validate(response.body.id)).toBe(true);
 
     expect(response.body).toMatchObject({
       title: 'Loan',
